@@ -30,8 +30,8 @@ public class ProductServices {
     private String adjustTheBasket(String basket) {
         if (correctBasket(basket)) {
             return Arrays.stream(basket.toUpperCase()
-                    .split(" "))
-                    .filter(productMap :: containsKey)
+                            .split(" "))
+                    .filter(productMap::containsKey)
                     .collect(Collectors.joining());
         }
         return basket;
@@ -41,9 +41,9 @@ public class ProductServices {
         String usersBasket = adjustTheBasket(basket);
         if (correctBasket(usersBasket)) {
             Map<String, Long> productsQuantity = Arrays.stream(usersBasket.split(" "))
-                    .map(productMap :: get)
-                    .collect(Collectors.groupingBy(Product :: getId,
-                            Collectors.mapping(Product :: getId, Collectors.counting())));
+                    .map(productMap::get)
+                    .collect(Collectors.groupingBy(Product::getId,
+                            Collectors.mapping(Product::getId, Collectors.counting())));
             return productsQuantity.entrySet().stream()
                     .mapToDouble(p -> productMap.get(p.getKey()).getPriceByQuantity(p.getValue()))
                     .sum();
