@@ -36,4 +36,19 @@ public class ProductServices {
         }
         return basket;
     }
+
+    public double calculateTheCostOfTheBasket(String basket) {
+        String usersBasket = adjustTheBasket(basket);
+        if (correctBasket(usersBasket)) {
+            Map<String, Long> productsQuantity = Arrays.stream(usersBasket.split(" "))
+                    .map(productMap :: get)
+                    .collect(Collectors.groupingBy(Product :: getId,
+                            Collectors.mapping(Product :: getId, Collectors.counting())));
+            return productsQuantity.entrySet().stream()
+                    .mapToDouble(p -> productMap.get(p.getKey()).getPriceByQuantity(p.getValue()))
+                    .sum();
+        } else {
+            return 0;
+        }
+    }
 }
