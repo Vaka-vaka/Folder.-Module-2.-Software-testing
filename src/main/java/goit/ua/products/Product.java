@@ -61,11 +61,8 @@ public class Product implements ProductId<String> {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id='" + id + '\'' +
-                ", price=" + price +
-                ", PromotionalQuantity=" + PromotionalQuantity +
-                ", PromotionalPrice=" + PromotionalPrice +
-                '}';
+        return "Product" +
+                "id = '" + id + '\'' +
+                ", price = " + price;
     }
 }
