@@ -1,5 +1,3 @@
-package goit.ua;
-
 /**
  * Homework. Module 2. jUnitTest
  *
@@ -7,7 +5,9 @@ package goit.ua;
  *  @version of 18.10.2021
  */
 
-public class User {
+package goit.ua;
+
+public class Product {
 
     
 }
