@@ -33,7 +33,7 @@ public class Product implements ProductId<String> {
 
     public double getPriceByQuantity(long quantity) {
         if (quantity <= 0) {
-            throw new RuntimeException("No products were chosen ");
+            throw new RuntimeException("No products were chosen");
         }
         if (quantity < PromotionalQuantity) {
             return (quantity * price);
