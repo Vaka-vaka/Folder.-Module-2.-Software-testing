@@ -61,5 +61,12 @@ public class ProductTest {
         assertNotEquals(anotherPromotionalPrice, testProduct);
     }
 
-    
+    @Test
+    public void testCompareHashCode() {
+        Product product = testProduct;
+        assertEquals(product.hashCode(), testProduct.hashCode());
+
+        Product newProduct = new Product("A", 1.25, 3, 3);
+        assertEquals(newProduct.hashCode(), testProduct.hashCode());
+    }
 }
