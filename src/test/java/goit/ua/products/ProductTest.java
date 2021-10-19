@@ -42,7 +42,7 @@ public class ProductTest {
 
     @Test
     public void testCompareProducts() {
-        Product similar = new Product("A", 1.25, 3, 2);
+        Product similar = new Product("A", 1.25, 3, 3);
         assertEquals(similar, testProduct);
     }
 }
