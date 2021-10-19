@@ -69,4 +69,10 @@ public class ProductTest {
         Product newProduct = new Product("A", 1.25, 3, 3);
         assertEquals(newProduct.hashCode(), testProduct.hashCode());
     }
+
+    @Test
+    public void testCompareDifferentProduct() {
+        Product product = new Product("D", 0.75);
+        assertNotEquals(product.hashCode(), testProduct.hashCode());
+    }
 }
