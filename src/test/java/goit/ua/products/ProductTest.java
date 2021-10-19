@@ -40,5 +40,9 @@ public class ProductTest {
                 "Quantity can't be less than 1");
     }
 
-    
+    @Test
+    public void testCompareProducts() {
+        Product similar = new Product("A", 1.25, 3, 2);
+        assertEquals(similar, testProduct);
+    }
 }
