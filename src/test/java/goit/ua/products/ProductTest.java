@@ -45,4 +45,21 @@ public class ProductTest {
         Product similar = new Product("A", 1.25, 3, 3);
         assertEquals(similar, testProduct);
     }
+
+    @Test
+    public void testDifferentCompareProducts() {
+        Product product = new Product("D", 0.75);
+        assertNotEquals(product, testProduct);
+
+        Product anotherPrice = new Product("A", 2, 3, 3);
+        assertNotEquals(anotherPrice, testProduct);
+
+        Product anotherPromotionalQuantity = new Product("A", 1.25, 8, 3);
+        assertNotEquals(anotherPromotionalQuantity, testProduct);
+
+        Product anotherPromotionalPrice = new Product("A", 1.25, 3, 9);
+        assertNotEquals(anotherPromotionalPrice, testProduct);
+    }
+
+    
 }
