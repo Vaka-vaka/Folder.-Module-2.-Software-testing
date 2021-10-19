@@ -8,7 +8,7 @@
 package goit.ua.products;
 
 import org.junit.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
     /**
@@ -28,5 +28,8 @@ public class ProductTest {
         assertEquals(expected, actual);
     }
 
-    
+    @Test
+    public void testGetPriceByQuantityZero() {
+        assertThrows(RuntimeException.class, () ->testProduct.getPriceByQuantity(0));
+    }
 }
