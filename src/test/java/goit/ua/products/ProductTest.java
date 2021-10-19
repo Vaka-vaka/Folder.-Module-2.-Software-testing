@@ -8,6 +8,7 @@
 package goit.ua.products;
 
 import org.junit.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductTest {
     /**
@@ -20,7 +21,12 @@ public class ProductTest {
         testProduct = new Product("A", 1.25, 3, 3);
     }
 
+    @Test
     public void testGetPriceByQuantity() {
-
+        double expected = 1.25;
+        double actual = testProduct.getPriceByQuantity(1);
+        assertEquals(expected, actual);
     }
+
+    
 }
