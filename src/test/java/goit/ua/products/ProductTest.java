@@ -2,7 +2,7 @@
  * Homework. Module 2. jUnitTest
  *
  * @autor Valentin Mozul
- * @version of 18.10.2021
+ * @version of 19.10.2021
  */
 
 package goit.ua.products;
@@ -13,8 +13,14 @@ public class ProductTest {
     /**
      * Rigorous Test :-)
      */
-    @Test
-    public void shouldAnswerWithTrue() {
+    private Product testProduct;
+
+    @Before
+    public void initProduct() {
+        testProduct = new Product("A", 1.25, 3, 3);
+    }
+
+    public void testGetPriceByQuantity() {
 
     }
 }
