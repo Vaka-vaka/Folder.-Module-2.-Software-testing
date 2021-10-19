@@ -30,6 +30,15 @@ public class ProductTest {
 
     @Test
     public void testGetPriceByQuantityZero() {
-        assertThrows(RuntimeException.class, () ->testProduct.getPriceByQuantity(0));
+        assertThrows(RuntimeException.class, () ->testProduct.getPriceByQuantity(0),
+                "Amount can't be less than 1");
     }
+
+    @Test
+    public void testGetPriceByQuantityMinus() {
+        assertThrows(RuntimeException.class, () -> testProduct.getPriceByQuantity(-1),
+                "Quantity can't be less than 1");
+    }
+
+    
 }
