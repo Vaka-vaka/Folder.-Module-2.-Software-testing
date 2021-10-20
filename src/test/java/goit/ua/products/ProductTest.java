@@ -8,6 +8,7 @@
 package goit.ua.products;
 
 import org.junit.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
@@ -30,7 +31,7 @@ public class ProductTest {
 
     @Test
     public void testGetPriceByQuantityZero() {
-        assertThrows(RuntimeException.class, () ->testProduct.getPriceByQuantity(0),
+        assertThrows(RuntimeException.class, () -> testProduct.getPriceByQuantity(0),
                 "Amount can't be less than 1");
     }
 
