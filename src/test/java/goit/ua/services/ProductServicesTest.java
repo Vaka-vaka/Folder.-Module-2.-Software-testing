@@ -14,25 +14,32 @@ public class ProductServicesTest {
     /**
      * Rigorous Test :-)
      */
-    private ProductServices testProductServis;
+    private ProductServices testProductServices;
 
     @Before
     public void init() {
-        testProductServis = new ProductServices();
+        testProductServices = new ProductServices();
     }
 
     @Test
     public void testCalculateTheCostOfTheBasket() {
         String basket = "ABCDABA";
         double expected = 13.25;
-        double actual = testProductServis.calculateTheCostOfTheBasket(basket);
+        double actual = testProductServices.calculateTheCostOfTheBasket(basket);
         assertEquals(expected, actual);
 
         String basketIsNotNewA = "bcdB";
         double expectedA = 10.25;
-        double actualA = testProductServis.calculateTheCostOfTheBasket(basketIsNotNewA);
+        double actualA = testProductServices.calculateTheCostOfTheBasket(basketIsNotNewA);
         assertEquals(expectedA, actualA);
     }
 
-    
+    @Test
+    public void testCalculateTheCostOfTheBasketZero() {
+        double expected = 0;
+        double actual = testProductServices.calculateTheCostOfTheBasket(null);
+        assertEquals(expected, actual);
+    }
+
+
 }
