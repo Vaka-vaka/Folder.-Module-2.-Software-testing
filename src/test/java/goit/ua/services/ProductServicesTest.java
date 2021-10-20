@@ -8,6 +8,7 @@
 package goit.ua.services;
 
 import org.junit.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductServicesTest {
@@ -41,5 +42,27 @@ public class ProductServicesTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testCostUnknownProducts() {
+        String basket = "mfgOUT";
+        double expected = 0;
+        double actual = testProductServices.calculateTheCostOfTheBasket(basket);
+        assertEquals(expected, actual);
 
+        String basketWithSpace = "ABCD ABA";
+        String basketWithSpaceAndWithCorrectAndUnknown = "ABcD NGHABATYU";
+        double expectedSpaceAndCorrect = 13.25;
+
+        double actualSpace = testProductServices.calculateTheCostOfTheBasket(basketWithSpace);
+        assertEquals(expectedSpaceAndCorrect, actualSpace);
+
+        double actualWithSpaceAndWithCorrectAndUnknown = testProductServices
+                .calculateTheCostOfTheBasket(basketWithSpaceAndWithCorrectAndUnknown);
+        assertEquals(expectedSpaceAndCorrect, actualWithSpaceAndWithCorrectAndUnknown);
+
+        String basketNumber = "ABCDAB a345";
+        double expectedNumber = 13.25;
+        double actualNumber = testProductServices.calculateTheCostOfTheBasket(basketNumber);
+        assertEquals(expectedNumber, actualNumber);
+    }
 }
