@@ -7,9 +7,18 @@
 
 package goit.ua.services;
 
+import org.junit.Before;
+
 public class ProductServicesTest {
     /**
      * Rigorous Test :-)
      */
+    private ProductServices testProductServis;
 
+    @Before
+    public void init() {
+        testProductServis = new ProductServices();
+    }
+
+    
 }
