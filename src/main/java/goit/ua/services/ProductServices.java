@@ -27,7 +27,7 @@ public class ProductServices {
         return basket != null && !basket.isEmpty();
     }
 
-    private String adjustTheBasket(String basket) {
+    private String adjustBasket(String basket) {
         if (correctBasket(basket)) {
             return Arrays.stream(basket.toUpperCase()
                             .split(""))
@@ -37,8 +37,8 @@ public class ProductServices {
         return basket;
     }
 
-    public double calculateTheCostOfTheBasket(String basket) {
-        String usersBasket = adjustTheBasket(basket);
+    public double calculateCostOfBasket(String basket) {
+        String usersBasket = adjustBasket(basket);
         if (correctBasket(usersBasket)) {
             Map<String, Long> productsQuantity = Arrays.stream(usersBasket.split(""))
                     .map(productMap::get)
