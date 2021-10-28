@@ -9,7 +9,7 @@ package goit.ua.products;
 
 import java.util.Objects;
 
-public class Product implements ProductId<String> {
+public class Product implements ProductId, ProductSaleable<String> {
 
     private final String id;
     private final double price;
@@ -27,10 +27,24 @@ public class Product implements ProductId<String> {
         this(id, price, 1, price);
     }
 
+@Override
     public String getId() {
         return id;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public int getPromotionalQuantity() {
+        return PromotionalQuantity;
+    }
+
+    public double getPromotionalPrice() {
+        return PromotionalPrice;
+    }
+
+@Override
     public double getPriceByQuantity(long quantity) {
         if (quantity <= 0) {
             throw new RuntimeException("No products were chosen");
