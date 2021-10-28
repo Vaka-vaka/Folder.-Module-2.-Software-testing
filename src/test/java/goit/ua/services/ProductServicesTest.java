@@ -23,22 +23,22 @@ public class ProductServicesTest {
     }
 
     @Test
-    public void testCalculateTheCostOfTheBasket() {
+    public void testCalculateCostOfBasket() {
         String basket = "ABCDABA";
         double expected = 13.25;
-        double actual = testProductServices.calculateTheCostOfTheBasket(basket);
+        double actual = testProductServices.calculateCostOfBasket(basket);
         assertEquals(expected, actual);
 
         String basketIsNotNewA = "bcdB";
         double expectedA = 10.25;
-        double actualA = testProductServices.calculateTheCostOfTheBasket(basketIsNotNewA);
+        double actualA = testProductServices.calculateCostOfBasket(basketIsNotNewA);
         assertEquals(expectedA, actualA);
     }
 
     @Test
-    public void testCalculateTheCostOfTheBasketZero() {
+    public void testCalculateCostOfBasketZero() {
         double expected = 0;
-        double actual = testProductServices.calculateTheCostOfTheBasket(null);
+        double actual = testProductServices.calculateCostOfBasket(null);
         assertEquals(expected, actual);
     }
 
@@ -46,23 +46,23 @@ public class ProductServicesTest {
     public void testCostUnknownProducts() {
         String basket = "mfgOUT";
         double expected = 0;
-        double actual = testProductServices.calculateTheCostOfTheBasket(basket);
+        double actual = testProductServices.calculateCostOfBasket(basket);
         assertEquals(expected, actual);
 
         String basketWithSpace = "ABCD ABA";
         String basketWithSpaceAndWithCorrectAndUnknown = "ABcD NGHABATYU";
         double expectedSpaceAndCorrect = 13.25;
 
-        double actualSpace = testProductServices.calculateTheCostOfTheBasket(basketWithSpace);
+        double actualSpace = testProductServices.calculateCostOfBasket(basketWithSpace);
         assertEquals(expectedSpaceAndCorrect, actualSpace);
 
         double actualWithSpaceAndWithCorrectAndUnknown = testProductServices
-                .calculateTheCostOfTheBasket(basketWithSpaceAndWithCorrectAndUnknown);
+                .calculateCostOfBasket(basketWithSpaceAndWithCorrectAndUnknown);
         assertEquals(expectedSpaceAndCorrect, actualWithSpaceAndWithCorrectAndUnknown);
 
         String basketNumber = "ABCDAB a345";
         double expectedNumber = 13.25;
-        double actualNumber = testProductServices.calculateTheCostOfTheBasket(basketNumber);
+        double actualNumber = testProductServices.calculateCostOfBasket(basketNumber);
         assertEquals(expectedNumber, actualNumber);
     }
 }
